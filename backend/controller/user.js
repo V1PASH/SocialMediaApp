@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const Post=require("../models/Post");
 
 exports.register= async (req, res) => {
     try{
@@ -154,6 +155,146 @@ exports.updatePassword=async (req, res) => {
         res.status(500).json({
             sucess:false,
             message:error.message
+        })
+    }
+}
+
+
+exports.updateProfile=async (req, res) => {
+    try{
+        const user=await User.findById(req.user._id);
+        const {name, email}=req.body;
+
+        if(name){
+            user.name=name
+        }
+        if(email){
+            user.email=email
+        }
+
+        await user.save();
+
+        res.status(200).json({
+            sucess:true,
+            message:"User Updated"
+        })
+    }
+    catch (err){
+        res.status(500).json({
+            sucess:false,
+            message:err.message
+        })
+    }
+}
+
+
+exports.deleteMyProfile=async (req,res)=>{
+    try{
+        const user =await User.findById(req.user._id);
+        const posts=user.posts;
+        const followers=user.followers;
+        const userId=user._id;
+        // removing posts
+        for (let i = 0; i < posts.length; i++) {
+            const post= await Post.findById(posts[i])
+            await post.deleteOne();
+        }
+
+        // removing user from following and followers
+
+        await Promise.all(user.followers.map(async (followerId) => {
+            const follower = await User.findById(followerId);
+            if (follower) {
+                follower.following = follower.following.filter(id => id.toString() !== userId.toString());
+                await follower.save();
+            }
+        }));
+
+        // 3. Remove this user from followings' followers list
+        await Promise.all(user.following.map(async (followingId) => {
+            const followingUser = await User.findById(followingId);
+            if (followingUser) {
+                followingUser.followers = followingUser.followers.filter(id => id.toString() !== userId.toString());
+                await followingUser.save();
+            }
+        }));
+
+
+
+        await user.deleteOne();
+
+        res.cookie("token",null,{
+            expires:new Date(Date.now()),
+            httpOnly:true
+        })
+
+        res.status(200).json({
+            success:true,
+            message:"user Deleted"
+        })
+        
+    }
+    catch (e) {
+        res.status(500).json({
+            success:false,
+            message:e.message
+        })
+    }
+}
+
+exports.myProfile=async (req,res)=>{
+    try{
+        const user=await User.findById(req.user._id).populate("posts")
+
+        res.status(200).json({
+            sucess:true,
+            user
+        })
+    }
+    catch (e) {
+        res.status(500).json({
+            success:false,
+            message:e.message
+        })
+    }
+}
+
+exports.getUserProfile=async (req,res)=>{
+    try{
+       const user=await User.findById(req.params.id).populate("posts")
+
+        if(!user){
+           res.status(404).json({
+               sucess:false,
+               message:"user not found"
+           })
+        }
+        res.status(200).json({
+            success: true,
+            user,
+        });
+
+    }
+    catch (e) {
+        res.status(500).json({
+            success:false,
+            message:e.message
+        })
+    }
+}
+
+exports.getAllUsers=async (req,res)=>{
+    try{
+        const users=await User.find({});
+        res.status(200).json({
+            success:true,
+            users,
+        })
+    }
+    catch (e) {
+        res.status(500).json({
+            success:false,
+            message:e.message
         })
     }
 }
