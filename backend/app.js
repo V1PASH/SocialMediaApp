@@ -14,7 +14,6 @@ app.use(cookieParser())
 const post=require("./routes/post");
 const user=require("./routes/user");
 
-
 // using routes
 app.use("/api/v1",post)
 app.use("/api/v1",user)
