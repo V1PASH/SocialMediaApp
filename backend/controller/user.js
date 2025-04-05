@@ -113,3 +113,47 @@ exports.followUser=async (req, res) => {
     })
     }
 }
+
+exports.logout=async (req, res) => {
+    try{
+        res.status(200).cookie("token",null,{expires:new Date(Date.now()),httpOnly:true}).json({
+            success:true,
+            message:"User Logged out"
+        });
+    }
+    catch(err){
+        res.status(500).json({
+            sucess:false,
+            message: err.message,
+        })
+    }
+}
+
+exports.updatePassword=async (req, res) => {
+    try{
+        const user=await User.findById(req.user._id).select("+password");
+
+        const {oldPassword,newPassword} = req.body;
+
+        const isMatch=await user.matchPassword(oldPassword);
+
+
+        if(!isMatch){
+            return res.status(400).json({sucess:false,message:"incorrect password"});
+        }
+
+        user.password=newPassword;
+        await user.save();
+
+        res.status(200).json({
+            success:true,
+            message:"User Updated"
+        })
+    }
+    catch (error){
+        res.status(500).json({
+            sucess:false,
+            message:error.message
+        })
+    }
+}
