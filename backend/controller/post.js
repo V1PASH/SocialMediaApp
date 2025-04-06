@@ -239,6 +239,7 @@ exports.deleteComment=async (req,res)=>{
             });
 
             await post.save();
+
             res.status(200).json({
                 success:true,
                 message:"selected Comment Deleted"

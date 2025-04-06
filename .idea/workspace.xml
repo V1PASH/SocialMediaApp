@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51c05686-3ce0-445a-ac08-5235887370f5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/middleswares/sendEmail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/config/config.env" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/config.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controller/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controller/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controller/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controller/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +75,7 @@
       <workItem from="1743688493880" duration="19353000" />
       <workItem from="1743745568935" duration="37476000" />
       <workItem from="1743876125612" duration="875000" />
-      <workItem from="1743877478923" duration="1326000" />
+      <workItem from="1743877478923" duration="8396000" />
     </task>
     <servers />
   </component>
