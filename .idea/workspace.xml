@@ -5,27 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51c05686-3ce0-445a-ac08-5235887370f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/middleswares/sendEmail.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Component/Header.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Component/LoginForm.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Style/Header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Style/LoginForm.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/config.env" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/config.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controller/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controller/post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controller/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controller/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="d66fbd64-4c7f-41c4-8794-6c2445952350" value="Blue" />
+    </colors>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JSX File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -48,6 +50,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/Major_Project&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -55,8 +58,18 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\program\\WebStorm 2024.3.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;
+    ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Major_Project\frontend\src" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -75,7 +88,17 @@
       <workItem from="1743688493880" duration="19353000" />
       <workItem from="1743745568935" duration="37476000" />
       <workItem from="1743876125612" duration="875000" />
-      <workItem from="1743877478923" duration="8396000" />
+      <workItem from="1743877478923" duration="9717000" />
+      <workItem from="1743925986712" duration="31000" />
+      <workItem from="1743926031200" duration="279000" />
+      <workItem from="1743927008674" duration="117000" />
+      <workItem from="1743947203831" duration="2961000" />
+      <workItem from="1743952369080" duration="94000" />
+      <workItem from="1743952486439" duration="37000" />
+      <workItem from="1743952573440" duration="1961000" />
+      <workItem from="1744012569194" duration="1544000" />
+      <workItem from="1744043124214" duration="1839000" />
+      <workItem from="1744049474188" duration="11000" />
     </task>
     <servers />
   </component>

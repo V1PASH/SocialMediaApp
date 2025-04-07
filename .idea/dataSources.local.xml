@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="WS-243.25659.40">
+    <data-source name="@localhost" uuid="d66fbd64-4c7f-41c4-8794-6c2445952350">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>Arsh</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>
