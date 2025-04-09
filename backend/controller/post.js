@@ -113,12 +113,11 @@ exports.getPostOfFollowing = async (req, res) => {
         const posts = await Post.find({
             owner: { $in: user.following }
         })
-            .populate("owner", "name") // to get name of post owner
-            .sort({ createdAt: -1 });  // optional: newest first
+            .populate("owner likes comments.user")
 
         res.status(200).json({
             success: true,
-            posts,
+            posts:posts.reverse(),
         });
     } catch (error) {
         res.status(500).json({

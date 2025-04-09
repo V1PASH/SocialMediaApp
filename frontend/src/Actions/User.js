@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export const loginUser = (email, password) => async (dispatch) => {
+export const loginUser = (username, password) => async (dispatch) => {
   try {
     dispatch({ type: "LoginRequest" });
 
     const { data } = await axios.post(
       "/api/v1/login",
-      { email, password },
+      { username, password },
       {
         headers: {
           "Content-Type": "application/json",
@@ -48,3 +48,24 @@ export const loadUser = () => async (dispatch) => {
     });
   }
 };
+
+export const getFollowingPost= () => async (dispatch) =>{
+  try{
+    dispatch({
+      type:"postOfFollowingRequest"
+    });
+
+    const {data}=await axios.get("/api/v1/posts")
+    dispatch({
+      type:"postOfFollowingSuccess",
+      payload:data.posts,
+    })
+
+  }
+  catch(e){
+    dispatch({
+      type: "postOfFollowingFailure",
+      payload: e?.response?.data?.message || e?.message || "post loading failed",
+    });
+  }
+}

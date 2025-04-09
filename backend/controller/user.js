@@ -5,13 +5,14 @@ const crypto = require("crypto");
 
 exports.register= async (req, res) => {
     try{
-        const {name,email,password} = req.body;
+        const {name,email,password,username} = req.body;
 
-        let user=await User.findOne({email:email});
-        if(user) return res.status(400).json({sucess:false,message:"User already exists"});
+        let user=await User.findOne({username:username});
+        if(user) return res.status(400).json({success:false,message:"User already exists"});
 
         user =await User.create({
             name,
+            username,
             email,
             password,
             avatar:{public_id:"",url:""}
@@ -31,20 +32,20 @@ exports.register= async (req, res) => {
     }
     catch(err){
         res.status(500).json({
-            sucess: false,
+            success: false,
             message: err.message,
         })
     }
 };
 exports.login=async (req, res) => {
     try{
-        const {email,password} = req.body;
-        const user=await User.findOne({email }).select("+password");
+        const {username,password} = req.body;
+        const user=await User.findOne({username}).select("+password");
         if(!user){
-            return res.status(400).json({sucess:false,message:"User doesnt exist"});
+            return res.status(400).json({success:false,message:"User doesn't exist"});
         }
         const isMatch=await  user.matchPassword(password);
-         if(!isMatch) return res.status(400).json({sucess:false,message:"incorrect password"});
+         if(!isMatch) return res.status(400).json({success:false,message:"Incorrect password"});
 
          const token=await user.generateToken();
 
@@ -61,7 +62,7 @@ exports.login=async (req, res) => {
     }
     catch (err){
         res.status(500).json({
-            sucess: false,
+            success: false,
             message: err.message,
         })
     }
@@ -74,7 +75,7 @@ exports.followUser=async (req, res) => {
 
         if(!userToFollow){
           return  res.status(404).json({
-                sucess:false,
+                success:false,
                     message:"User Not Found"
             })
         }
@@ -125,7 +126,7 @@ exports.logout=async (req, res) => {
     }
     catch(err){
         res.status(500).json({
-            sucess:false,
+            success:false,
             message: err.message,
         })
     }
@@ -141,7 +142,7 @@ exports.updatePassword=async (req, res) => {
 
 
         if(!isMatch){
-            return res.status(400).json({sucess:false,message:"incorrect password"});
+            return res.status(400).json({success:false,message:"incorrect password"});
         }
 
         user.password=newPassword;
@@ -154,7 +155,7 @@ exports.updatePassword=async (req, res) => {
     }
     catch (error){
         res.status(500).json({
-            sucess:false,
+            success:false,
             message:error.message
         })
     }
@@ -176,13 +177,13 @@ exports.updateProfile=async (req, res) => {
         await user.save();
 
         res.status(200).json({
-            sucess:true,
+            success:true,
             message:"User Updated"
         })
     }
     catch (err){
         res.status(500).json({
-            sucess:false,
+            success:false,
             message:err.message
         })
     }
@@ -248,7 +249,7 @@ exports.myProfile=async (req,res)=>{
         const user=await User.findById(req.user._id).populate("posts")
 
         res.status(200).json({
-            sucess:true,
+            success:true,
             user
         })
     }
@@ -266,7 +267,7 @@ exports.getUserProfile=async (req,res)=>{
 
         if(!user){
            res.status(404).json({
-               sucess:false,
+               success:false,
                message:"user not found"
            })
         }
@@ -389,3 +390,33 @@ exports.resetPassword=async (req,res)=>{
         })
     }
 }
+
+
+exports.updateUsername = async (req, res) => {
+    try {
+        const newUserName = req.body.newusername;
+
+        const user = await User.findById(req.user._id).select("+username");
+
+        const isAvailable = await User.findOne({ username: newUserName });
+        if (isAvailable) {
+            return res.status(400).json({
+                success: false,
+                message: "Username already exists",
+            });
+        }
+
+        user.username = newUserName;
+        await user.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Username updated",
+        });
+    } catch (e) {
+        res.status(500).json({
+            success: false,
+            message: e.message,
+        });
+    }
+};

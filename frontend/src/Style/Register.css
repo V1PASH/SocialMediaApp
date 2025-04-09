@@ -1,33 +1,21 @@
-.login{
+.register{
     height: 100vh;
     align-content: center;
-}
 
-.login-container{
+}
+.register-container{
     background-color: white;
     padding: 20px; 
     border-radius: 10px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.575);
 }
-
-.login-container a{
-    text-decoration: none;
-    color: gray;
-}
-.login-container a:hover{
-    color:rgb(0, 0, 182);
-}
-input{
-    width: 100%;
-}
-.login-btn{
+.btn-register{
     background:linear-gradient(60deg,rgba(42, 42, 255, 0.451),rgba(221, 0, 255, 0.703));
     border: none;
     color: white;
     width: 100%;
     border-radius: 50px;
 }
-.login-btn:hover{
+.btn-register:hover{
     background: linear-gradient(60deg,rgba(42, 42, 255, 0.751),rgba(221, 0, 255, 0.903));
     color: white;
 }

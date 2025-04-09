@@ -10,6 +10,13 @@ const userSchema= new mongoose.Schema(
             type:String,
             required:true,
         },
+// added by myself
+        username:{
+            type:String,
+            required:true,
+            unique:true
+        },
+// this too
         avatar:{
             public_id:String,
             url:String,

@@ -5,10 +5,24 @@ function Header() {
     return (
         <>
             <header>
-                <NavLink to="/" className={({isActive})=>isActive?"active":"not-active"}><i class="fa-solid fa-house"></i></NavLink>
-                <NavLink to="/newPost" className={({isActive})=>isActive?"active":"not-active"}><i class="fa-regular fa-square-plus"></i></NavLink>
-                <NavLink to="/search" className={({isActive})=>isActive?"active":"not-active"}><i class="fa-solid fa-magnifying-glass"></i></NavLink>
-                <NavLink to="/account" className={({isActive})=>isActive?"active":"not-active"}><i class="fa-solid fa-user"></i></NavLink>
+                <div className="container">
+                    <nav>
+                        <ul className="navlist">
+                            <li>
+                                <NavLink to="/" className={({isActive})=>isActive?"active":"not-active"}><i className="fa-solid fa-house"></i></NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/newPost" className={({isActive})=>isActive?"active":"not-active"}><i className="fa-regular fa-square-plus"></i></NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/search" className={({isActive})=>isActive?"active":"not-active"}><i className="fa-solid fa-magnifying-glass"></i></NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/account" className={({isActive})=>isActive?"active":"not-active"}><i className="fa-solid fa-user"></i></NavLink>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </header>
         </>
     )

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import {loginUser} from "../Actions/User"
 
 function LoginForm(){
-    const [credentials, setCredentials] = useState({email:"",password:""});
+    const [credentials, setCredentials] = useState({username:"",password:""});
     const dispatch=useDispatch();
 
     function handleChange(event) {
@@ -18,31 +18,44 @@ function LoginForm(){
     {
             e.preventDefault();
             
-            dispatch(loginUser(credentials.email,credentials.password))
+            dispatch(loginUser(credentials.username,credentials.password))
     }
 
     return (
         <>
-            <div className="login">
-                
-                <form onSubmit={handleLogin} className="login-form">
-                <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" value={credentials.email} onChange={handleChange} required/>
+            
+            <section className="login">
+                <div className="container">
+                    <div class="row justify-content-center">
+                        <div className="col-md-6 col-sm-0">
+                            ghj
+                        </div>
+                        <div className="col-md-6 col-sm-12">
+                            <div className="login-container">
+                                <h1 className="text-center fw-bolder">Login</h1>
+                                <form onSubmit={handleLogin} className="login-form">
+                                    <div className="mb-3">
+                                        <label htmlFor="" className="form-label">Username</label>
+                                        <input type="text" className="form-control" name="username" value={credentials.username} onChange={handleChange} required/>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="" className="form-label">Password</label>
+                                        <input type="password" className="form-control" name="password" value={credentials.password} onChange={handleChange} required/>
+                                    </div>
+                                    <button type="submit" className="btn login-btn">Login</button>
+                                    <br/>
+                                    <p className="text-end"><NavLink to="/forgot/password">Forgot Password?</NavLink></p>
+                                    <br />
+                                    <div className="mb-3 text-center">
+                                        <p>Don't have an account ?</p>
+                                        <NavLink to="/register">Sign Up</NavLink>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="mb-3">
-                    <label for="exampleInputPassword1" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" name="password" value={credentials.password} onChange={handleChange} required/>
-                </div>
-                    <button type="submit" className="btn btn-primary">Login</button>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <NavLink to="/forgot/password">Forgot Password</NavLink>
-                    <br />
-                    <NavLink to="/register">Register Now</NavLink>
-                </form>
-            </div>
+            </section>    
         </>
     )
 }
