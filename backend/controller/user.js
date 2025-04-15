@@ -40,7 +40,7 @@ exports.register= async (req, res) => {
 exports.login=async (req, res) => {
     try{
         const {username,password} = req.body;
-        const user=await User.findOne({username}).select("+password");
+        const user=await User.findOne({username}).select("+password").populate("posts followers following");
         if(!user){
             return res.status(400).json({success:false,message:"User doesn't exist"});
         }

@@ -8,6 +8,7 @@ import { loadUser } from './Actions/User';
 import Home from './Component/Home';
 import RegisterNow from './Component/RegisterNow';
 import Account from './Component/Account';
+import NewPost from './Component/NewPost';
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
             <Routes>
                 <Route path="/"element={isAuthenticated?<><Header/><Home/></>:<><LoginForm/></>} />
                 <Route path='/register' element={<RegisterNow/>}/>
-                <Route path="/newPost"element={isAuthenticated?<><Header/></>:<><LoginForm/></>} />
+                <Route path="/newPost"element={isAuthenticated?<><Header/><NewPost/></>:<><LoginForm/></>} />
                 <Route path="/search"element={isAuthenticated?<><Header/></>:<><LoginForm/></>} />
                 <Route path="/account"element={isAuthenticated?<><Header/><Account/></>:<><LoginForm/></>} />
             </Routes>

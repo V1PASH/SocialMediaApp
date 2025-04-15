@@ -12,15 +12,16 @@ function Account ()  {
 
     const {loading,error,posts}=useSelector((state)=>state.myPosts)
 
-    const{error:likeError,message}=useSelector(state=>state.like)
     let navigate = useNavigate();
     const {user}=useSelector((state)=>state.user)
 
     const [followerList,setFollowerList]=useState(false)
     const [followingList,setFollowingList]=useState(false)
     const [moreProfileOptions,setMoreProfileOptions]=useState(false)
-    const logoutHandler=()=>{
-        dispatch(logoutUser())
+
+
+    const logoutHandler= ()=>{
+         dispatch(logoutUser())
         navigate("/")
     }
 

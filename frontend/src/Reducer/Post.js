@@ -42,6 +42,18 @@ export const likeReducer=createReducer(initialState,(builder)=>{
      })
 
 
+     .addCase('newPostRequest',(state)=>{
+      state.loading=true;
+     })
+     .addCase('newPostSuccess',(state,action)=>{
+      state.loading=false;
+      state.message=action.payload
+     })
+     .addCase('newPostFailure',(state,action)=>{
+      state.loading=false;
+      state.error=action.payload
+     })
+
    .addCase('clearErrors',(state)=>{
     state.error=null
    })
