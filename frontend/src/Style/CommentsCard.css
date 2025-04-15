@@ -1,0 +1,29 @@
+.avatar img{
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.comment-box{
+    display: flex;
+    width: 100%;
+}
+ul{
+    padding: 0;
+}
+.username{
+    font-size: 13px;
+    font-weight: 500;
+}
+.comment{
+    font-size: 15px;
+}
+.remove{
+   width: 10%;
+}
+.avatar{
+    width: 20%;
+}
+.info{
+    width: 70%;
+}

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadUser } from './Actions/User';
 import Home from './Component/Home';
 import RegisterNow from './Component/RegisterNow';
+import Account from './Component/Account';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
   const{isAuthenticated}=useSelector((state)=>state.user)
   const dispatch=useDispatch();
   useEffect(()=>{
-dispatch(loadUser());
+      dispatch(loadUser());
   },[dispatch])
   
   return (
@@ -26,7 +27,7 @@ dispatch(loadUser());
                 <Route path='/register' element={<RegisterNow/>}/>
                 <Route path="/newPost"element={isAuthenticated?<><Header/></>:<><LoginForm/></>} />
                 <Route path="/search"element={isAuthenticated?<><Header/></>:<><LoginForm/></>} />
-                <Route path="/account"element={isAuthenticated?<><Header/></>:<><LoginForm/></>} />
+                <Route path="/account"element={isAuthenticated?<><Header/><Account/></>:<><LoginForm/></>} />
             </Routes>
         </Router>        
     </div>

@@ -8,11 +8,12 @@ function Home(){
     const dispatch=useDispatch();
 
     const{loading,posts,error}=useSelector(state=>state.postOfFollowing)
-
+    const{error:likeError,message}=useSelector(state=>state.like)
     useEffect(()=>{
         dispatch(getFollowingPost())
-    },[])
+    },[dispatch])
     
+
     return(
         loading?<Loader/>:
         <>

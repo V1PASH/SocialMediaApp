@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config({path:'backend/config/config.env'});
 }
+
 // Using Middlesware
 
 app.use(express.json());
